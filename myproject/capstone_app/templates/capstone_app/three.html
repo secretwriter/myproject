@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #eaf4f8;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #ddeaf0;
+    border-radius: 10px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.search-bar input {
+    padding: 8px;
+    width: 400px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-buttons button {
+    padding: 8px 12px;
+    margin-left: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbar {
+    background: #b0c4de;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.navbar p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.navbar a {
+    background: #c3cde6;
+    padding: 8px 12px;
+    margin: 5px;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.content {
+    padding: 30px;
+    text-align: center;
+}
+
+h1 {
+    background: #f8f8c6;
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+h1 {
+    margin-top: 40px;
+    margin-bottom: 30px; 
+    padding: 15px 25px;
+}
+
+h3 {
+    margin-top: 30px;
+    margin-bottom: 20px; 
+}
+
+.learninggames {
+    margin-bottom: 50px; 
+    padding: 25px;
+}
+
+.learninggames {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.learninggames a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 200px;
+    height: 100px;
+    text-align: left;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    padding: 15px;
+}
+
+.learninggames a img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.learninggames a:nth-child(1) { background: #ff6666; }
+.learninggames a:nth-child(2) { background: #66ff66; }
+.learninggames a:nth-child(3) { background: #ff66ff; }
+.learninggames a:nth-child(4) { background: #ffcc66; }
+
+
+.Fungames {
+    text-align: center;
+    margin-top: 60px; 
+    padding: 30px;
+}
+
+.Fungames h3 {
+    text-align: left;
+    margin-left: 20px;
+}
+
+.Fungames .game-list {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.Fungames .game-list a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 200px;
+    height: 100px;
+    text-align: left;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    padding: 15px;
+}
+
+.Fungames .game-list a img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.Fungames .game-list a:nth-child(1) { background: #ffb3b3; }
+.Fungames .game-list a:nth-child(2) { background: #b3ffb3; }
+.Fungames .game-list a:nth-child(3) { background: #b3b3ff; }
+.Fungames .game-list a:nth-child(4) { background: #ffdb99; }
+
+
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+</style>
+</head>
+<body>
+  <div class="header">
+    <a href="start.html"><div class="logo"><img src="अND__1_-removebg-preview.png" alt=""></div></a>
+    <div class="search-bar">
+        <input type="text" placeholder="SEARCH GAME OR YOUR SUBJECT">
+    </div>
+    <div class="auth-buttons">
+        <a href="login.html"><button>Login</button></a> 
+        <a href="signup.html"><button>Sign Up</button></a>
+    </div>
+</div>
+<div class="navbar">
+  <p>Select Your Grade:</p>
+    <a href="kd.html">KinderGarden</a>
+    <a href="one.html">ONE</a>
+    <a href="two.html">TWO</a>
+    <a href="three.html">THREE</a>
+    <a href="four.html">FOUR</a>
+    <a href="five.html">FIVE</a>
+
+</div>
+<div class="content">
+    <h1>GRADE THREE GAMES</h1>
+    <div class="learninggames">
+        <a href="#">GAME 1</a>
+        <a href="#">GAME 2</a>
+        <a href="#">GAME 3</a>
+        <a href="#">GAME 4</a>
+    </div>
+
+</div>
+<div class="footer">
+    &copy; 2025. All rights reserved.
+</div>
+</body>
+</html>

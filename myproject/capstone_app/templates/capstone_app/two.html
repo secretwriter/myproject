@@ -1,0 +1,288 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grade Two Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #66ccff;
+      --accent: #ffcc66;
+      --sky: linear-gradient(to bottom, #87ceeb 0%, #cceeff 70%, #a8e6cf 100%);
+      --grass: radial-gradient(circle at bottom, #7ed957 20%, #57c84d 100%);
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Baloo 2', cursive;
+    }
+
+    body {
+      background: var(--sky);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      color: #333;
+    }
+
+    .sun {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, #ffd700, #ffa500);
+      border-radius: 50%;
+      box-shadow: 0 0 30px #ffaa00;
+      z-index: 0;
+    }
+
+    .rainbow {
+      position: absolute;
+      top: 120px;
+      right: -100px;
+      width: 500px;
+      height: 250px;
+      background: conic-gradient(red, orange, yellow, green, blue, indigo, violet);
+      border-radius: 50%;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .cloud {
+      position: absolute;
+      width: 100px;
+      height: 60px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.9;
+      animation: floatCloud 60s linear infinite;
+      z-index: 1;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: '';
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+    }
+
+    .cloud::before {
+      width: 80px;
+      height: 80px;
+      left: -40px;
+      top: -20px;
+    }
+
+    .cloud::after {
+      width: 80px;
+      height: 80px;
+      left: 40px;
+      top: -20px;
+    }
+
+    @keyframes floatCloud {
+      0% { transform: translateX(-200px); }
+      100% { transform: translateX(110vw); }
+    }
+
+    .header {
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 15px 20px;
+      margin: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px var(--shadow);
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      width: 300px;
+      border: 2px solid #222;
+      border-radius: 10px;
+    }
+
+    .auth-buttons button {
+      padding: 10px 15px;
+      margin-left: 10px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+      background: white;
+    }
+
+    .auth-buttons button:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .navbar {
+      background: var(--primary);
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      margin: 20px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .navbar a {
+      background: white;
+      color: var(--primary);
+      padding: 8px 14px;
+      margin: 5px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .navbar a:hover {
+      background: var(--accent);
+    }
+
+    .content {
+      text-align: center;
+      z-index: 2;
+      position: relative;
+    }
+
+    .content h1 {
+      background: var(--accent);
+      display: inline-block;
+      padding: 15px 30px;
+      border-radius: 15px;
+      font-size: 30px;
+      margin: 20px auto;
+      box-shadow: 0 2px 10px var(--shadow);
+    }
+
+    .learninggames {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    .learninggames a {
+      width: 200px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      border-radius: 15px;
+      box-shadow: 2px 4px 10px var(--shadow);
+      transition: transform 0.3s;
+    }
+
+    .learninggames a:nth-child(1) { background: #ff6f61; }
+    .learninggames a:nth-child(2) { background: #33cc66; color: black; }
+    .learninggames a:nth-child(3) { background: #cc66ff; }
+    .learninggames a:nth-child(4) { background: #ffcc66; color: black; }
+
+    .learninggames a:hover {
+      transform: scale(1.08);
+    }
+
+    .footer {
+      background: var(--grass);
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      color: white;
+      margin-top: 40px;
+      z-index: 2;
+      position: relative;
+    }
+
+    @media screen and (max-width: 600px) {
+      .search-bar input {
+        width: 100%;
+        margin: 10px 0;
+      }
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .auth-buttons {
+        margin-top: 10px;
+      }
+      .learninggames a {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Decorations -->
+  <div class="sun"></div>
+  <div class="rainbow"></div>
+  <div class="cloud" style="top: 80px; left: -200px;"></div>
+  <div class="cloud" style="top: 150px; left: -300px; animation-delay: 20s;"></div>
+
+  <!-- Header -->
+  <div class="header">
+    <a href="start.html" class="logo">
+      <img src="{% static 'logo.png' %}" alt="Logo" />
+    </a>
+    <div class="search-bar">
+      <input type="text" placeholder="SEARCH GAME OR YOUR SUBJECT" />
+    </div>
+    <div class="auth-buttons">
+      <a href="login.html"><button>Login</button></a>
+      <a href="signup.html"><button>Sign Up</button></a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="navbar">
+    <p>Select Your Grade:</p>
+    <a href="kd.html">Kindergarten</a>
+    <a href="one.html">One</a>
+    <a href="two.html">Two</a>
+    <a href="three.html">Three</a>
+    <a href="four.html">Four</a>
+    <a href="five.html">Five</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1>Grade Two Games</h1>
+    <div class="learninggames">
+      <a href="#">Game 1</a>
+      <a href="#">Game 2</a>
+      <a href="#">Game 3</a>
+      <a href="#">Game 4</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Grade Two Learning Zone. All rights reserved.
+  </div>
+
+</body>
+</html>
