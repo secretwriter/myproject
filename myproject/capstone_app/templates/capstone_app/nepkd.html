@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>अक्षर मिलाऊँ - BADDA Learning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'Preeti', sans-serif;
+    }
+
+    /* Update in the style section */
+    body, html {
+      height: 100%;
+      overflow-y: auto; /* Changed from hidden to auto */
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Changed from height to min-height */
+      padding: 20px;  /* Increased padding */
+      gap: 15px;
+    }
+
+    /* Update search bar style */
+    .header input[type="text"] {
+      width: 100%;
+      padding: 12px 20px;  /* Increased padding */
+      border-radius: 25px;
+      border: none;
+      font-size: 16px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Update image box styles */
+    .image-box {
+      background: #f0f9ff;
+      border: 3px dashed #81D4FA;
+      border-radius: 10px;
+      padding: 15px;  /* Increased padding */
+      width: 150px;   /* Increased width */
+      height: 150px;  /* Increased height */
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .image-box img {
+      max-width: 80px;    /* Increased max-width */
+      max-height: 80px;   /* Increased max-height */
+      object-fit: contain;
+    }
+    body {
+      position: relative;
+    }
+
+    video.bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      padding: 10px;
+      gap: 10px;
+    }
+
+    /* UPDATED HEADER */
+    .header {
+      background: #D1C4E9;
+      padding: 10px 20px;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    .title-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title-block h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .title-block small {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Update the header-right styles and add new styles in your <style> section */
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .auth-buttons a {
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 20px;
+        font-weight: 500;
+        transition: all 0.3s;
+    }
+    
+    .login-btn {
+        background: #FDD835;
+        color: #333;
+    }
+    
+    .signup-btn {
+        background: #7f9cf5;
+        color: white;
+    }
+    
+    .auth-buttons a:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+    }
+    
+    .score-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 10px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+    }
+    
+    .score-section img {
+        height: 50px;
+    }
+    .header-right img {
+      height: 50px;
+    }
+
+    .score {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      background: #FDD835;
+      padding: 6px 12px;
+      border-radius: 10px;
+    }
+
+    /* UPDATED NAVBAR */
+    .navbar {
+      background: #D1C4E9;
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: flex-start;
+      gap: 15px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .navbar a {
+      background: #FDD835;
+      padding: 8px 16px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      border-radius: 12px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .navbar a:hover {
+      background: #7f9cf5;
+      color: white;
+    }
+
+    .game-area {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      overflow: hidden;
+    }
+
+    .image-container, .letter-container {
+      flex: 1;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+      gap: 10px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .image-box {
+      background: #f0f9ff;
+      border: 3px dashed #81D4FA;
+      border-radius: 10px;
+      padding: 8px;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+    }
+
+    .image-box img {
+      max-width: 40px;
+      max-height: 40px;
+    }
+
+    .word {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .letter {
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
+      background: #FDD835;
+      border: none;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: move;
+    }
+
+    .message {
+      text-align: center;
+      font-size: 18px;
+      padding: 10px;
+      color: white;
+    }
+
+    .message.success {
+      background: #4CAF50;
+    }
+
+    .message.error {
+      background: #E53935;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 5px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .popup {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        animation: popIn 0.5s ease-out;
+    }
+
+    @keyframes popIn {
+        from { transform: scale(0); }
+        to { transform: scale(1); }
+    }
+
+    .panda-dance {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+    }
+
+    .popup h2 {
+        color: #4a5568;
+        margin-bottom: 15px;
+    }
+
+    .popup button {
+        background: #FDD835;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 15px;
+        transition: background 0.3s;
+    }
+
+    .popup button:hover {
+        background: #7f9cf5;
+        color: white;
+    }
+  </style>
+</head>
+<body>
+  <video class="bg-video" autoplay muted loop>
+    <source src="your-background.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <!-- Top Navigation Bar -->
+    <div class="header" style="background: #87CEEB;">
+      <div class="logo-section">
+        <a href="start.html">
+          <div class="logo"><img src="अND__1_-removebg-preview.png" alt="BADDA Logo" style="height: 40px;"></div>
+        </a>
+      </div>
+      <div style="flex-grow: 1; padding: 0 20px;">
+        <input type="text" placeholder="SEARCH GAME OR YOUR SUBJECT" style="width: 100%; padding: 8px; border-radius: 20px; border: none;">
+      </div>
+      <div class="header-right">
+        <div class="auth-buttons">
+          <a href="login.html" class="login-btn">Login</a>
+          <a href="signup.html" class="signup-btn">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grade Selection Bar -->
+    <div class="navbar" style="background: #E6E6FA; justify-content: center;">
+      <a href="#" style="background: #FFD700;">KinderGarden</a>
+      <a href="#" style="background: #FFD700;">ONE</a>
+      <a href="#" style="background: #FFD700;">TWO</a>
+      <a href="#" style="background: #FFD700;">THREE</a>
+      <a href="#" style="background: #FFD700;">FOUR</a>
+      <a href="#" style="background: #FFD700;">FIVE</a>
+    </div>
+
+    <!-- Game Title -->
+    <div style="text-align: center; margin: 15px 0;">
+      <h1 style="font-size: 2.5rem; color: #333; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">अक्षर मिलाऊँ</h1>
+    </div>
+
+    <!-- Centered Score Section -->
+    <div class="score-section" style="justify-content: center;">
+        <img src="panda.jpg" alt="Panda" />
+        <div class="score">Score: <span id="score">0</span></div>
+    </div>
+
+    <div class="game-area">
+      <div class="image-container" id="imageContainer"></div>
+      <div class="letter-container" id="letterContainer"></div>
+    </div>
+
+    <div class="message" id="message"></div>
+    <div class="footer">© 2025 BADDA Learning</div>
+  </div>
+
+  <script>
+    const gameData = [
+      { letter: 'ग', word: 'गाई', image: 'cow.png' },
+      { letter: 'क', word: 'कुकुर', image: 'dog.png' },
+      { letter: 'ह', word: 'हात्ती', image: 'elephant.png' },
+      { letter: 'आ', word: 'आँप', image: 'lion.png' },
+      { letter: 'च', word: 'चरा', image: 'bird.png' },
+      { letter: 'म', word: 'माछा', image: 'fish.png' }
+    ];
+
+    let score = 0;
+
+    function shuffleArray(array) {
+      return array
+        .map(value => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value);
+    }
+
+    function startGame() {
+      const imageContainer = document.getElementById("imageContainer");
+      const letterContainer = document.getElementById("letterContainer");
+
+      imageContainer.innerHTML = "";
+      letterContainer.innerHTML = "";
+
+      gameData.forEach(item => {
+        const box = document.createElement("div");
+        box.className = "image-box";
+        box.dataset.letter = item.letter;
+
+        const img = document.createElement("img");
+        img.src = item.image;
+        const word = document.createElement("div");
+        word.className = "word";
+        word.textContent = item.word;
+
+        box.appendChild(img);
+        box.appendChild(word);
+        imageContainer.appendChild(box);
+
+        box.addEventListener("dragover", e => e.preventDefault());
+        box.addEventListener("drop", drop);
+      });
+
+      shuffleArray(gameData).forEach(item => {
+        const letter = document.createElement("div");
+        letter.className = "letter";
+        letter.textContent = item.letter;
+        letter.draggable = true;
+        letter.addEventListener("dragstart", dragStart);
+        letterContainer.appendChild(letter);
+      });
+    }
+
+    function dragStart(e) {
+      e.dataTransfer.setData("text/plain", e.target.textContent);
+    }
+
+    function drop(e) {
+      e.preventDefault();
+      const draggedLetter = e.dataTransfer.getData("text/plain");
+      const correctLetter = e.currentTarget.dataset.letter;
+
+      if (draggedLetter === correctLetter) {
+        showMessage(`सही! ${correctLetter}`, "success");
+        score += 10;
+        document.getElementById("score").textContent = score;
+        e.currentTarget.style.borderColor = "#4CAF50";
+
+        const allBoxes = document.querySelectorAll('.image-box');
+        const matchedBoxes = Array.from(allBoxes).filter(box =>
+          box.style.borderColor === 'rgb(76, 175, 80)'
+        );
+
+        if (matchedBoxes.length === gameData.length) {
+          setTimeout(showGameComplete, 1000);
+        }
+      } else {
+        showMessage("गलत! फेरि प्रयास गर्नुहोस्", "error");
+      }
+    }
+
+    function showGameComplete() {
+      const overlay = document.querySelector('.popup-overlay');
+      document.getElementById('finalScore').textContent = score;
+      overlay.style.display = 'flex';
+    }
+
+    function restartGame() {
+      const overlay = document.querySelector('.popup-overlay');
+      overlay.style.display = 'none';
+      score = 0;
+      document.getElementById('score').textContent = score;
+      startGame();
+    }
+
+    function showMessage(msg, type) {
+      const message = document.getElementById("message");
+      message.textContent = msg;
+      message.className = `message ${type}`;
+      setTimeout(() => {
+        message.className = "message";
+        message.textContent = "";
+      }, 2000);
+    }
+
+    window.onload = startGame;
+  </script>
+
+  <div class="popup-overlay">
+    <div class="popup">
+        <h2>Game Complete!</h2>
+        <p>You scored <span id="finalScore">0</span> points!</p>
+        <img src="pandaclap.gif" alt="Dancing Panda" class="panda-dance">
+        <button onclick="restartGame()">Play Again</button>
+    </div>
+  </div>
+</body>
+</html>
+
