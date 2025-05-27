@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎮 EduKids Admin Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9fafb;
+      padding: 20px;
+    }
+    h1 {
+      color: #3b82f6;
+    }
+    .card {
+      background-color: white;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card h2 {
+      margin-bottom: 10px;
+    }
+  </style>
+  <script>
+    // Auto-run when page loads
+    window.onload = function () {
+      fetchCount("api/admin/total-users/", "users-count");
+      fetchCount("api/admin/total-games/", "games-count");
+      fetchCount("api/admin/pending-requests/", "pending-count");
+    };
+
+    function fetchCount(apiPath, elementId) {
+      fetch("/" + apiPath)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById(elementId).innerText = data.count;
+        })
+        .catch(err => {
+          console.error("Error loading " + apiPath, err);
+          document.getElementById(elementId).innerText = "Error";
+        });
+    }
+  </script>
+</head>
+<body>
+  <h1>🎮 EduKids Admin Dashboard</h1>
+
+  <div class="card">
+    <h2>Total Users</h2>
+    <p id="users-count">Loading...</p>
+  </div>
+
+  <div class="card">
+    <h2>Total Games</h2>
+    <p id="games-count">Loading...</p>
+  </div>
+
+  <div class="card">
+    <h2>Pending Game Requests</h2>
+    <p id="pending-count">Loading...</p>
+  </div>
+  <a href="/logout/" style="color: red; font-weight: bold;">Logout</a>
+<h2>Welcome, {{ request.user.username }}</h2>
+
+</body>
+</html>
