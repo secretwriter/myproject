@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with BADDA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', 'Bubblegum Sans', cursive;
+        }
+
+        body {
+            background: #E0F7FA;
+            padding: 20px;
+        }
+
+        /* Header and Navbar styles (same as start.html) */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #81D4FA;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(129, 212, 250, 0.4);
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .navbar {
+            background: #D1C4E9;
+            padding: 15px;
+            text-align: center;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(209, 196, 233, 0.5);
+        }
+
+        .navbar p {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #212121;
+        }
+
+        .navbar a {
+            background: #FDD835;
+            padding: 8px 12px;
+            margin: 5px;
+            text-decoration: none;
+            color: #212121;
+            border-radius: 15px;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background: #FFB300;
+        }
+
+        /* Robot Animation Area */
+        .robot-container {
+            text-align: center;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+
+        .robot-animation {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .robot {
+            width: 150px;
+            height: 150px;
+            background: #FDD835;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Chat Area */
+        .chat-area {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: #FDD835;
+            padding: 20px;
+            text-align: center;
+            color: #212121;
+        }
+
+        .messages {
+            height: 400px;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f5f5f5;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 70%;
+        }
+
+        .user-message {
+            background: #81D4FA;
+            margin-left: auto;
+        }
+
+        .bot-message {
+            background: #FDD835;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #81D4FA;
+            border-radius: 15px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .chat-input button {
+            padding: 10px 20px;
+            background: #FDD835;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .chat-input button:hover {
+            background: #FFB300;
+        }
+
+        /* Footer */
+        .footer {
+            background: #212121;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            border-radius: 20px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="start.html"><div class="logo"><img src="अND__1_-removebg-preview.png" alt=""></div></a>
+    </div>
+
+    <div class="navbar">
+        <p>Select Your Grade:</p>
+        <a href="kd.html">KinderGarden</a>
+        <a href="#">ONE</a>
+        <a href="#">TWO</a>
+        <a href="#">THREE</a>
+        <a href="#">FOUR</a>
+        <a href="#">FIVE</a>
+    </div>
+
+    <div class="robot-container">
+        <div class="robot-animation">
+            <div class="robot">🤖</div>
+            <div class="robot" style="animation-delay: 0.5s">🎮</div>
+            <div class="robot" style="animation-delay: 1s">📚</div>
+        </div>
+        <h2>Chat with BADDA - Your Learning Buddy!</h2>
+    </div>
+
+    <div class="chat-area">
+        <div class="chat-header">
+            <h3>BADDA is here to help you learn and play!</h3>
+        </div>
+        <div class="messages">
+            <div class="message bot-message">
+                Hi! I'm BADDA. I can help you with your studies and games! 😊
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message here...">
+            <button>Send</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2025. All rights reserved.
+    </div>
+
+    <script>
+        // First, add these helper functions right after the input declarations
+        // Update the event listeners and message handling
+        const input = document.querySelector('.chat-input input');
+        const button = document.querySelector('.chat-input button');
+        const messages = document.querySelector('.messages');
+        
+        // Add this line to check if elements are found
+        if (!input || !button || !messages) {
+            console.error('Required elements not found');
+        }
+        
+        // Update the event listeners
+        button.onclick = sendMessage;
+        input.onkeypress = (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        };
+
+        async function sendMessage() {
+            if (input.value.trim() === '') return;
+
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user-message';
+            userMessage.textContent = input.value;
+            messages.appendChild(userMessage);
+
+            // Show typing indicator
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'message bot-message';
+            typingIndicator.textContent = 'BADDA is typing...';
+            messages.appendChild(typingIndicator);
+
+            // Simulate thinking time
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            // Remove typing indicator
+            messages.removeChild(typingIndicator);
+
+            // Get bot response
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            
+            const userInput = input.value.toLowerCase();
+            let response = '';
+
+            // Enhanced response logic
+            if (userInput.includes('hello') || userInput.includes('hi')) {
+                response = responses.greetings[Math.floor(Math.random() * responses.greetings.length)];
+            } 
+            // Math and Roman number responses
+            else if (userInput.includes('math') || userInput.includes('roman') || 
+                     userInput.includes('convert') || userInput.match(/\d+/)) {
+                
+                if (userInput.includes('roman')) {
+                    const number = userInput.match(/\d+/);
+                    if (number && number[0] <= 100) {
+                        response = `${number[0]} in Roman numerals is: ${convertToRoman(number[0])} ⚔️`;
+                    } else {
+                        response = responses.math.roman.guide + "\n\nExamples:\n" + responses.math.roman.examples;
+                    }
+                }
+                else if (userInput.includes('add') || userInput.includes('+')) {
+                    const mathResponse = handleMathProblem(userInput, 'add');
+                    response = mathResponse || responses.math.addition.problems[0];
+                }
+                else if (userInput.includes('subtract') || userInput.includes('-')) {
+                    const mathResponse = handleMathProblem(userInput, 'subtract');
+                    response = mathResponse || responses.math.subtraction.problems[0];
+                }
+                else if (userInput.includes('multiply') || userInput.includes('×') || userInput.includes('*')) {
+                    const mathResponse = handleMathProblem(userInput, 'multiply');
+                    response = mathResponse || responses.math.multiplication.tables;
+                }
+                else if (userInput.includes('divide') || userInput.includes('÷') || userInput.includes('/')) {
+                    const mathResponse = handleMathProblem(userInput, 'divide');
+                    response = mathResponse || responses.math.division.problems[0];
+                }
+                else if (userInput.includes('money') || userInput.includes('convert')) {
+                    response = handleMoneyConversion(userInput);
+                }
+                else response = responses.math.general;
+            }
+            // English responses
+            else if (userInput.includes('english')) {
+                if (userInput.includes('translate')) {
+                    response = responses.english.translation.guide;
+                }
+                else if (userInput.includes('verb')) {
+                    const verbs = responses.english.grammar.verbs;
+                    response = "Choose a verb to see its forms!\nExample - 'go':\n" + verbs.go.join(" → ");
+                }
+                else response = responses.english.grammar.topics;
+            }
+            // Nepali responses
+            else if (userInput.includes('nepali')) {
+                if (userInput.includes('anthem')) {
+                    response = responses.nepali.songs.anthem;
+                }
+                else if (userInput.includes('tara') || userInput.includes('nursery')) {
+                    response = responses.nepali.songs.nursery.tara;
+                }
+                else response = "Choose:\n1. National Anthem\n2. Nursery Rhymes\n3. Translations 🎵";
+            }
+            // Games responses
+            else if (userInput.includes('game')) {
+                if (userInput.includes('tic')) {
+                    response = responses.games.tic;
+                }
+                else if (userInput.includes('ludo')) {
+                    response = responses.games.ludo;
+                }
+                else if (userInput.includes('chess')) {
+                    response = responses.games.chess;
+                }
+                else response = responses.games.general;
+            }
+            // Help response
+            else if (userInput.includes('help')) {
+                response = "I can help you with:\n1. Math 🔢\n2. English 📖\n3. Nepali 📝\n4. Games 🎮\nWhat would you like to learn? 😊";
+            }
+            // Default response
+            else {
+                response = "I'm not sure about that. Try asking about math, English, Nepali, or games! 🌟";
+            }
+
+            botMessage.textContent = response;
+            messages.appendChild(botMessage);
+
+            // Clear input and scroll
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+        }
