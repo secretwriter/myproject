@@ -9,11 +9,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Comic Sans MS', 'Bubblegum Sans', cursive;  
 }
 
 body {
-    background: #eaf4f8;
+    background: #E0F7FA;  
     padding: 20px;
 }
 
@@ -22,8 +22,9 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background: #ddeaf0;
-    border-radius: 10px;
+    background: #81D4FA;  /* Updated to Sky Blue */
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(129, 212, 250, 0.4);
 }
 
 .logo img {
@@ -33,161 +34,207 @@ body {
 .search-bar input {
     padding: 8px;
     width: 400px; 
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #B0BEC5;  /* Updated border color */
+    border-radius: 15px;
+    background: #FFFFFF;  /* White background */
+    font-size: 18px;
 }
 
 .auth-buttons button {
     padding: 8px 12px;
     margin-left: 10px;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    background: #FDD835;  /* Updated to Bright Yellow */
+    border: none;
+    border-radius: 15px;
     cursor: pointer;
+    color: #212121;  /* Dark Grey text */
+    transition: background 0.3s ease;
+}
+
+.auth-buttons button:hover {
+    background: #FFB300;  /* Gold/Orange on hover */
 }
 
 .navbar {
-    background: #b0c4de;
+    background: #D1C4E9;  /* Updated to Light Lavender */
     padding: 15px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(209, 196, 233, 0.5);
 }
 
 .navbar p {
     font-weight: bold;
     margin-bottom: 10px;
+    color: #212121;  /* Dark Grey text */
 }
 
 .navbar a {
-    background: #c3cde6;
+    background: #FDD835;  /* Bright Yellow */
     padding: 8px 12px;
     margin: 5px;
     text-decoration: none;
-    color: black;
-    border-radius: 5px;
+    color: #212121;
+    border-radius: 15px;
     display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+    background: #FFB300;  /* Gold/Orange on hover */
+}
+
+h1 {
+    background: #FDD835;
+    color: #212121;
+    display: inline-block;
+    padding: 8px 25px;  /* Reduced padding */
+    border-radius: 15px;
+    font-size: 32px;
+    box-shadow: 0 4px 8px rgba(253, 216, 53, 0.3);
+    letter-spacing: 5px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+.Fungames {
+    margin-top: 80px;  /* Increased margin between sections */
+}
+h3 {
+    font-size: 28px;
+    margin: 30px 0;
+    color: #212121;
+    text-align: center;  /* Center aligned headings */
 }
 
 .content {
-    padding: 30px;
-    text-align: center;
-}
-
-h1 {
-    background: #f8f8c6;
-    display: inline-block;
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-size: 24px;
-    margin-top: 20px;
-}
-
-h1 {
-    margin-top: 40px;
-    margin-bottom: 30px; 
-    padding: 15px 25px;
-}
-
-h3 {
-    margin-top: 30px;
-    margin-bottom: 20px; 
-}
-
-.learninggames {
-    margin-bottom: 50px; 
-    padding: 25px;
-}
-
-.learninggames {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    padding: 20px;
-}
-
-.learninggames a {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 200px;
-    height: 100px;
-    text-align: left;
-    font-weight: bold;
-    border-radius: 5px;
-    text-decoration: none;
-    color: black;
-    padding: 15px;
-}
-
-.learninggames a img {
-    width: 50px;
-    height: 50px;
-    margin-right: 15px;
-}
-
-.learninggames a:nth-child(1) { background: #ff6666; }
-.learninggames a:nth-child(2) { background: #66ff66; }
-.learninggames a:nth-child(3) { background: #ff66ff; }
-.learninggames a:nth-child(4) { background: #ffcc66; }
-
-
-.Fungames {
-    text-align: center;
-    margin-top: 60px; 
+    text-align: center;  /* Center all content */
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 30px;
 }
 
-.Fungames h3 {
-    text-align: left;
-    margin-left: 20px;
+/* Update Learning Games colors */
+.learninggames a:nth-child(1) { background: #FF6F61; }  /* Coral Red */
+.learninggames a:nth-child(2) { background: #81C784; }  /* Light Green */
+.learninggames a:nth-child(3) { background: #E1BEE7; }  /* Light Purple */
+.learninggames a:nth-child(4) { background: #FFCC80; }  /* Soft Orange */
+
+/* Add hover effect to game cards */
+.learninggames a, .Fungames .game-list a {
+    transition: all 0.3s ease;
 }
 
-.Fungames .game-list {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    flex-wrap: wrap;
-    gap: 20px;
+.learninggames a:hover, .Fungames .game-list a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(33, 150, 243, 0.3);
 }
 
-.Fungames .game-list a {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 200px;
-    height: 100px;
-    text-align: left;
-    font-weight: bold;
-    border-radius: 5px;
-    text-decoration: none;
-    color: black;
-    padding: 15px;
-}
-
-.Fungames .game-list a img {
-    width: 50px;
-    height: 50px;
-    margin-right: 15px;
-}
-
-.Fungames .game-list a:nth-child(1) { background: #ffb3b3; }
-.Fungames .game-list a:nth-child(2) { background: #b3ffb3; }
-.Fungames .game-list a:nth-child(3) { background: #b3b3ff; }
-.Fungames .game-list a:nth-child(4) { background: #ffdb99; }
-
+/* Update Fun Games colors to match learning games */
+.Fungames .game-list a:nth-child(1) { background: #FF6F61; }
+.Fungames .game-list a:nth-child(2) { background: #81C784; }
+.Fungames .game-list a:nth-child(3) { background: #E1BEE7; }
+.Fungames .game-list a:nth-child(4) { background: #FFCC80; }
 
 .footer {
-    background: #333;
-    color: white;
+    background: #212121;  /* Dark Grey */
+    color: #FFFFFF;  /* White text */
     text-align: center;
     padding: 15px;
     margin-top: 40px;
-    border-radius: 10px;
+    border-radius: 20px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
-  </style>
+
+    .learninggames {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+    
+    .learninggames a {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        width: 200px;
+        padding: 10px;
+        border-radius: 15px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    .learninggames a img {
+        width: 180px;
+        height: 140px;
+        margin-bottom: 15px;
+        object-fit: contain;
+    }
+    
+    .Fungames .game-list {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+    
+    .Fungames .game-list a {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        width: 200px;
+        padding: 10px;
+        border-radius: 15px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    .Fungames .game-list a img {
+        width: 180px;
+        height: 140px;
+        margin-bottom: 15px;
+        object-fit: contain;
+    }
+
+.chatbot-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    background: #FDD835;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.chatbot-icon:hover {
+    transform: scale(1.1);
+}
+
+.chatbot-face {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.chatbot-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #212121;
+}
+</style>
 </head>
 <body>
   <div class="header">
@@ -221,15 +268,21 @@ h3 {
     </div>
 
     <div class="Fungames">
-      <h3>Fun Games</h3>
-      <div class="game-list">
-          <a href="tic-tac-toe.html"><img src="ticc.jpg" alt="Fun Game 1">Tic-Tac-Toe</a>
-          <a href="ludo.html"><img src="ludo.png" alt="Fun Game 2">Ludo</a>
-          <a href="chess.html"><img src="chess.jpeg" alt="Fun Game 3">Chess</a>
-          <a href="#"><img src="fun4-icon.png" alt="Fun Game 4">Fun Game 4</a>
-      </div>
-  </div>
+        <h3>Fun Games</h3>
+        <div class="game-list">
+            <a href="tic-tac-toe.html"><img src="ticc.jpg" alt="Fun Game 1">Tic-Tac-Toe</a>
+            <a href="ludo.html"><img src="ludo.png" alt="Fun Game 2">Ludo</a>
+            <a href="chess.html"><img src="chess.jpeg" alt="Fun Game 3">Chess</a>
+            <a href="#"><img src="fun4-icon.png" alt="Fun Game 4">Fun Game 4</a>
+        </div>
+    </div>
 </div>
+<a href="chatbox.html">
+<div class="chatbot-icon">
+    <div class="chatbot-face">🤖</div>
+    <div class="chatbot-name">BADDA</div>
+</div>
+</a>
 <div class="footer">
     &copy; 2025. All rights reserved.
 </div>
