@@ -1,1 +1,2 @@
-echo "# 🎨 Figma Design Links for UI/UX" 
+
+https://www.figma.com/design/9tnpcxb4XUmiOsua2drgE3/Untitled?node-id=12-648&t=5sWwrPCt0pMO9qv1-0
